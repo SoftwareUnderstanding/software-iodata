@@ -1,0 +1,45 @@
+@prefix : <https://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix iodata: <https://w3id.org/software-iodata#> .
+
+# This profile describes vocabulary terms needed to describe, as part the metadata of software applications, what data may be consumed (input) or produced (output) by an application.
+# The profile is meant to be used with schema.org, codemeta and our software type profile.
+
+
+#metadata
+<https://w3id.org/software-iodata> rdf:type owl:Ontology ;
+                            owl:versionIRI <https://w3id.org/software-types/1.0.0> ;
+                            <http://purl.org/dc/terms/abstract> "This profile describes vocabulary terms needed to describe, as part the metadata of software applications, what data may be consumed (input) or produced (output) by an application."@en ;
+                            <http://purl.org/dc/elements/1.1/description> "This profile describes vocabulary terms needed to describe, as part the metadata of software applications, what data may be consumed (input) or produced (output) by an application."@en ;
+                            <http://purl.org/dc/elements/1.1/title> "The Software Types ontology"@en ;
+                            <http://purl.org/dc/terms/created> "February 3rd, 2022"@en ;
+                            <http://purl.org/dc/terms/creator> "Maarten van Gompel"@en ,
+                                                               "Daniel Garijo"@en ;
+                            <http://purl.org/dc/terms/license> <http://creativecommons.org/licenses/by/2.0/> ;
+                            <http://purl.org/vocab/vann/preferredNamespacePrefix> "stype"@en ;
+                            <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/software-types" ;
+                            <http://schema.org/citation> "Cite this vocabulary as: van Gompel, M and Garijo, D. The Software Input/Output Data ontology 1.0.0."@en ;
+                            rdfs:comment "This profile describes vocabulary terms needed to describe, as part the metadata of software applications, what data may be consumed (input) or produced (output) by an application."@en ;
+                            owl:versionInfo "1.0.0"@en .
+
+
+# new properties:
+
+stype:consumesData a rdf:Property ;
+    rdfs:label "consumesData" ;
+    :domainIncludes :SoftwareApplication , :SoftwareSourceCode ;
+    :rangeIncludes :CreativeWork ;
+    :source <https://github.com/codemeta/codemeta/issues/271> ;
+    rdfs:comment: "The software may take the specified data as input. The target object is typically interpreted as a template describing a class of data." .
+
+stype:producesData a rdf:Property ;
+    rdfs:label "producesData" ;
+    :domainIncludes :SoftwareApplication , :SoftwareSourceCode ;
+    :rangeIncludes :CreativeWork ;
+    :source <https://github.com/codemeta/codemeta/issues/271> ;
+    rdfs:comment: "The software may take the specified data as output. The target object is typically interpreted as a template describing a class of data." .
+
