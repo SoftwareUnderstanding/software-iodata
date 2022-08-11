@@ -4,6 +4,8 @@
         "schema": "http://schema.org/",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "consumesData": { "@id": "iodata:consumesData" },
+        "producesData": { "@id": "iodata:producesData" },
         "subClassOf": { "@id": "rdfs:subClassOf" },
         "label": { "@id": "rdfs:label" },
         "comment": { "@id": "rdfs:comment" },
@@ -11,13 +13,13 @@
     },
     "@graph": [
         {
-            "@id": "iodata:consumesData",
+            "@id": "consumesData",
             "@type": "Property",
             "label": "Consumes Data",
             "comment": "The software may take the specified data as input. The target object is typically interpreted as a template describing a class of data."
         },
         {
-            "@id": "iodata:producesData",
+            "@id": "producesData",
             "@type": "Property",
             "label": "Produces Data",
             "comment": "The software may deliver the specified data as output. The target object is typically interpreted as a template describing a class of data."
