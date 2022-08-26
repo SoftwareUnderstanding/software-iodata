@@ -15,15 +15,15 @@ curl -sH "accept:text/turtle" -L https://w3id.org/software-iodata
 ## Introduction
 
 This profile describes vocabulary terms needed to describe, as part the
-metadata of software applications, what data *may* be consumed (input) or
+metadata of software applications, what data is consumed (input) or
 produced (output) by an application. The profile is meant to be used with
-[schema.org](https://schema.org/), [codemeta](https://codemeta.github.io) and our 
+[schema.org](https://schema.org/), [codemeta](https://codemeta.github.io) and the 
 [software type profile](https://w3id.org/software-types).
 
 Our goal is to introduce as little additional vocabulary as possible and only
-extend where schema.org and codemeta leave representation gaps.
+extend schema.org and codemeta where representation gaps are present.
 
-## Why do we need a schema.org profile for software types?
+## Why do we need a schema.org profile for describing data being consumed and produced by software?
 
 The current schema.org and codemeta vocabulary do not provide a clear way to
 describe, for a `schema:SoftwareApplication`, the type of data that this
@@ -34,31 +34,29 @@ We introduce two simple and limited properties that allow this.
 This availability of specifying data input/output possibilities allows for
 more accurate software metadata descriptions. 
 
-**Disclaimer**: this work aims to create a profile that may be incorporated into codemeta or schema.org. The profile has persistent identifiers, but, if standardized, the classes and properties defined here may be absorbed into other initiatives.
+**Disclaimer**: this work aims to create a profile that may be incorporated into codemeta or schema.org. The profile has persistent identifiers, but, if standardized, the classes and properties defined here may be absorbed into the above vocabularies.
 
 ## Properties
 
 We introduce the following properties:
 
-* ``consumesData`` - The software may take the specified data as input. The target object is typically interpreted as a template.
-* ``producesData`` - The software may produce the specified data as output. The target object is typically interpreted as a template.
+* ``consumesData`` - The software takes the specified data as one  of its inputs. The target object is typically interpreted as a template describing a class of data. For example, For example, a Dataset in NetCDF format containing precipitation and time variables (in their respective units)
+* ``producesData`` - The software produces the specified data as one of its output. The target object is typically interpreted as a template describing a class of data. For example, a text document in CSV format.
 
 The domain of both these properties is `schema:SoftwareApplication` (or any of
-its subclasses) or `schema:SoftwareSourceCode`, the former is preferred as it
-is more specific and combines nicely with our use of `schema:targetProduct` as
-documented in https://w3id.org/software-types. If the domain is
-`SoftwareSourceCode`, they are simply interpreted as less specific then (read
-as: *some undefined build target of the source code consumes/produces certain
-data*).
+its subclasses) or `schema:SoftwareSourceCode`. The former is preferred as it
+is more specific and combines nicely with the usage of `schema:targetProduct` as
+proposed in https://w3id.org/software-types. If the domain is
+`SoftwareSourceCode`, then these properties are interpreted as less specific (read
+as: *some undefined build target of the source code consumes/produces certain type of data*).
 
-The range of the properties is a `schema:CreativeWork` (or any subclass), this
-offers a high degree of flexibility and re-uses as much as possible of the
+The range of the properties is a `schema:CreativeWork` (or any of its subclasses), this
+offers a high degree of flexibility and reuses as much as possible of the
 existing schema.org properties for e.g. expressing content/encoding types,
-natural languages etc... The object is to be typically interpreted as a
-template, describing a class of data that meets the constraints as laid out by
+natural languages etc. The object is to be typically interpreted as a
+template data type, describing a class of data that meets the constraints as laid out by
 further properties on that data. However, if enough constraining properties are
-specified, it can also be used to specifically refer to a single particular
-dataset.
+specified, it can also be used to specifically refer to a single particular dataset.
 
 We recommend use of the following schema.org subclasses of `CreativeWork` as object:
 
@@ -73,7 +71,7 @@ We recommend use of the following schema.org subclasses of `CreativeWork` as obj
     * [SpreadsheetDigitalDocument](https://schema.org/SpreadsheetDigitalDocument)
 * [Dataset](https://schema.org/Dataset)
 
-Example A, describes software metadata for a fictitious speech recognition tool that takes an audio file and produces a textual transcription:
+The example below describes software metadata for a fictitious speech recognition tool that takes an audio file and produces a textual transcription:
 
 ```json
 {
@@ -120,7 +118,7 @@ Example A, describes software metadata for a fictitious speech recognition tool 
 
 The `consumesData` and `producesData` properties are deliberately limited and do 
 not provide a full specification of the input/output of software. Both
-properties merely describe what kind data *MAY* be consumed or produced, with no guarantees
+properties merely describe what kind data is consumed or produced as one of the inputs or outputs of a software tool, with no guarantees
 and no explicit relations between any of them. If multiple objects are specified,
 it's not defined whether this is a union or intersection. The constraints on the 
 data classes themselves (in the above example: `encodingFormat`,`inLanguage`), however, 
@@ -128,9 +126,9 @@ should be interpreted as an intersection.
 
 Our aim here is just to give software metadata the ability to express some
 information on what input and output a particular piece of software can accept
-or produce, so that a user reading the metadata can for example make an
-informed decision whether certain software is useful for his/her purposes given
-the data he/she has or expects to produce.
+or produce, so that users reading the metadata can for example make an
+informed decision whether certain software is useful for their purposes given
+the data they have or expect to produce.
 
 We do not express how this data is passed to or obtained from the software, nor
 what data should or should not be passed/obtained together, nor what the exact
@@ -152,7 +150,7 @@ being implemented in the following software:
 
 Many vocabularies exist to describe software or its constituent parts, e.g., the [software description ontology](https://w3id.org/okn/o/sd/), [description of a project vocabulary](http://usefulinc.com/ns/doap#), [hydra](https://www.hydra-cg.com/spec/latest/core/) (for API description), the common workflow language (description of inputs and outputs of software components, etc.), etc.  Our proposed profile does not aim to redefine any new term related to software, but propose a lightweight profile that can be easily incorporated into schema.org or codemeta.
 
-## Real Examples
+## Examples
 
 You can consult the following projects as examples that make use of this profile:
 
