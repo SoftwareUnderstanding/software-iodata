@@ -16,13 +16,13 @@
             "@id": "consumesData",
             "@type": "Property",
             "label": "Consumes Data",
-            "comment": "The software may take the specified data as input. The target object is typically interpreted as a template describing a class of data."
+            "comment": "The software may take the specified data as input. The target object is typically interpreted as a template describing a class of data. For example, a Dataset in NetCDF format containing precipitation and time variables (in their respective units)"
         },
         {
             "@id": "producesData",
             "@type": "Property",
             "label": "Produces Data",
-            "comment": "The software may deliver the specified data as output. The target object is typically interpreted as a template describing a class of data."
+            "comment": "The software may deliver the specified data as output. The target object is typically interpreted as a template describing a class of data. For example, a text document in CSV format."
         }
     ]
 
