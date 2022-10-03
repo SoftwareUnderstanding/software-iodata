@@ -6,7 +6,7 @@ Schema.org profile for specifying software input/output data possibilities, used
 
 **Profile available at**: [https://w3id.org/software-iodata](https://w3id.org/software-iodata)
 
-**Supported serializations**: [JSON-LD](https://softwareunderstanding.github.io/software-iodata/releases/1.0.0/software-iodata.jsonld) (`application/ld+json`), [Turtle](https://softwareunderstanding.github.io/software-iodata/releases/1.0.0/software-iodata.ttl) (`text/turtle`) and [HTML](https://softwareunderstanding.github.io/software-iodata/releases/1.0.0/). See the code snippet below for an example on how to retrieve the profile in Turtle with a `curl` command:
+**Supported serializations**: [JSON-LD](https://softwareunderstanding.github.io/software-iodata/release/1.0.0/software-iodata.jsonld) (`application/ld+json`), [Turtle](https://softwareunderstanding.github.io/software-iodata/release/1.0.0/software-iodata.ttl) (`text/turtle`) and [HTML](https://softwareunderstanding.github.io/software-iodata/release/1.0.0/). See the code snippet below for an example on how to retrieve the profile in Turtle with a `curl` command:
 
 ```
 curl -sH "accept:text/turtle" -L https://w3id.org/software-iodata
