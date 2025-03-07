@@ -76,7 +76,7 @@ The example below describes software metadata for a fictitious speech recognitio
 ```json
 {
     "@context": [
-        "https://w3id.org/codemeta/v3.0",
+        "https://w3id.org/codemeta/3.0",
         "https://raw.githubusercontent.com/schemaorg/schemaorg/main/data/releases/13.0/schemaorgcontext.jsonld",
         "https://w3id.org/software-types",
         "https://w3id.org/software-iodata"
