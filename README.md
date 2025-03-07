@@ -45,8 +45,8 @@ We introduce the following properties:
 
 The domain of both these properties is `schema:SoftwareApplication` (or any of
 its subclasses) or `schema:SoftwareSourceCode`. The former is preferred as it
-is more specific and combines nicely with the usage of `schema:targetProduct` as
-proposed in https://w3id.org/software-types. If the domain is
+is more specific and combines nicely with the usage of `codemeta:isSourceCodeOf` as
+described in https://w3id.org/software-types. If the domain is
 `SoftwareSourceCode`, then these properties are interpreted as less specific (read
 as: *some undefined build target of the source code consumes/produces certain type of data*).
 
@@ -76,7 +76,7 @@ The example below describes software metadata for a fictitious speech recognitio
 ```json
 {
     "@context": [
-        "https://raw.githubusercontent.com/codemeta/codemeta/2.0/codemeta.jsonld",
+        "https://w3id.org/codemeta/v3.0",
         "https://raw.githubusercontent.com/schemaorg/schemaorg/main/data/releases/13.0/schemaorgcontext.jsonld",
         "https://w3id.org/software-types",
         "https://w3id.org/software-iodata"
@@ -85,7 +85,7 @@ The example below describes software metadata for a fictitious speech recognitio
     "name": "MySpeechRecognizer",
     "codeRepository": "https://github.com/someuser/MySpeechRecognizer",
     ...,
-    "targetProduct": [
+    "isSourceCodeOf": [
         {
             "type": "CommandLineApplication",
             "executableName": "transcribe",
